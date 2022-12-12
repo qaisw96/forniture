@@ -1,0 +1,25 @@
+import React from 'react';
+import ProductCard from "../ProductCard/ProductCard";
+
+const Products = ({ products }: any) => {
+  return (
+    <div className={classes.products}>
+      {products.map((product: any) => (
+        <ProductCard {...product}/>
+      ))}
+    </div>
+  );
+};
+
+const classes = {
+  products: `
+    mt-12
+    flex
+    flex-row
+    gap-2
+    md:gap-4
+    flex-wrap
+    justify-between`,
+};
+
+export default Products;
