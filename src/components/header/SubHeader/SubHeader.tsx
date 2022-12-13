@@ -20,7 +20,7 @@ const style = {
     text-[12px] 
     p-2 
     border-b-2
-    border-primary
+    border-secondary
     hover:text-gray-500
     cursor-pointer`
 }

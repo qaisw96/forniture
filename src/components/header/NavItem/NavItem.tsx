@@ -23,7 +23,7 @@ const NavItem = (props: INavItem) => {
 
 const classes = {
     container: `
-        hover:bg-black 
+        hover:bg-secondary 
         flex 
         justify-between 
         md:justify-start 

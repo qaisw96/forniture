@@ -23,7 +23,7 @@ const classes = {
     mt-12
     flex
     flex-row
-    gap-4
+    gap-2
     flex-wrap
     justify-between`,
 };

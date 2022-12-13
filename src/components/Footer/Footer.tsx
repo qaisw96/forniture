@@ -48,8 +48,8 @@ const Footer = ({ categories }: any) => {
 
 const classes = {
   container: `
-    mt-14
-    bg-secondary
+    mt-28
+    bg-third
     py-20`,
   top: `
     flex

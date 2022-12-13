@@ -28,7 +28,7 @@ const classes = {
     justify-center
     items-center
     gap-4
-    bg-secondary
+    bg-third
     w-full
     md:w-[33%]`,
   stars: `

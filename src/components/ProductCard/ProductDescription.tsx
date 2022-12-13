@@ -14,7 +14,7 @@ const classes = {
     flex
     flex-col
     items-center
-    bg-secondary
+    bg-third
     gap-3
     pb-4`,
   name: `
