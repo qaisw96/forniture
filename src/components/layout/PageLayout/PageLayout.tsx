@@ -11,7 +11,7 @@ const PageLayout = ({ children, categories }: any) => {
   const handleToggle = () => setIsMenuOpen(!isMenuOpen)
 
   useEffect(() => {
-    handleToggle();
+    setIsMenuOpen(false);
   }, [router.asPath]);
 
   const headerProps = {
