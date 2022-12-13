@@ -18,7 +18,7 @@ const CustomCarousel = () => {
     return (
       <Carousel afterChange={onChange} autoplay>
           {images.map((image) => (
-            <div>
+            <div key={image.key}>
                 <Image src={image.src} alt={image.alt} width={1000} height={500} className='w-full md:h-[80vh]'/>
             </div>
           ))}

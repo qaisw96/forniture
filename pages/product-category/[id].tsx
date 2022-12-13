@@ -1,13 +1,17 @@
 import React from 'react';
 import PageLayout from "../../src/components/layout/PageLayout/PageLayout";
 import {getAllCategories, getSingleCategory} from "../../src/database/categories";
-import BreadCrumb from "../../src/components/BreadCrumb/BreadCrumb";
+import DefaultLayout from "../../src/components/layout/DefaultLayout/DefaultLayout";
+import CategoryPageHeader from "../../src/components/CategoryPageHeader/CategoryPageHeader";
+import Products from "../../src/components/Products/Products";
 
 const Index = ({ categories, category }: any) => {
-  console.log(category)
   return (
     <PageLayout categories={categories}>
-      <BreadCrumb words={['word1, word2']} />
+      <DefaultLayout>
+        <CategoryPageHeader category={category}/>
+        <Products products={category.products} />
+      </DefaultLayout>
     </PageLayout>
   );
 };
@@ -25,7 +29,8 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }: any) => {
   const { id } = params;
 
-  const { data: category } =  await getSingleCategory(id);
+  let { data: category } =  await getSingleCategory(id) as any;
+  category = category[0]
   const { data: categories } =  await getAllCategories();
 
   return {
@@ -35,18 +40,5 @@ export const getStaticProps = async ({ params }: any) => {
     }
   }
 }
-
-// export const getServerSideProps = async ({ params }: any) => {
-//   const { id } = params;
-//   const { data: categories } =  await getAllCategories();
-//   const { data: category } =  await getSingleCategory(id);
-//
-//   return {
-//     props: {
-//       categories,
-//       category,
-//     }
-//   }
-// }
 
 export default Index;

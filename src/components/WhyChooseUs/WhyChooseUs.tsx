@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
       <SectionHeader title="WHY CHOOSE US" subTitle="BEST PRODUCTS"/>
       <div className={classes.cards}>
         {items.map((item) => (
-          <WhyChooseUsCard {...item} />
+          <WhyChooseUsCard {...item} key={item.title}/>
         ))}
       </div>
     </DefaultLayout>

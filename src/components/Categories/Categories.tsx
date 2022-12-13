@@ -9,7 +9,7 @@ const Categories = ({ categories }: any) => {
        <SectionHeader title="SHOP BY CATEGORY" subtitle="SHOP BY CATEGORY" />
         <div className={classes.categories}>
           {categories.map((category: any) => (
-            <Category {...category}/>
+            <Category {...category} key={category.id}/>
           ))}
         </div>
     </DefaultLayout>

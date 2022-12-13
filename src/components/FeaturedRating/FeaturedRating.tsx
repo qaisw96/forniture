@@ -12,7 +12,7 @@ const FeaturedRating = () => {
   return (
     <DefaultLayout className={classes.container}>
       {ratings.map((rate) => (
-        <RatingCard {...rate}/>
+        <RatingCard {...rate} key={rate.author}/>
       ))}
     </DefaultLayout>
   );

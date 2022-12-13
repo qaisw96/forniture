@@ -20,7 +20,7 @@ const Footer = ({ categories }: any) => {
           <div className={classes.links}>
             <h3 className={classes.title}>LINKS</h3>
             {links.map((link) => (
-              <Link href={link.link} className={classes.link}>
+              <Link href={link.link} className={classes.link} key={link.mame}>
                 {link.mame}
               </Link>
             ))}
@@ -28,7 +28,7 @@ const Footer = ({ categories }: any) => {
           <div className={classes.categories}>
             <h3 className={classes.title}>CATEGORIES</h3>
             {categories.map((category: any) => (
-              <Link href={`product-category/${category.slug}`} className={classes.link}>
+              <Link href={`product-category/${category.slug}`} className={classes.link} key={category.id}>
                 {category.name}
               </Link>
             ))}
