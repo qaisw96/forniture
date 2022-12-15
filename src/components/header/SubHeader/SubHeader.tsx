@@ -21,8 +21,10 @@ const style = {
     p-2 
     border-b-2
     border-secondary
-    hover:text-gray-500
-    cursor-pointer`
+    hover:text-primary
+    cursor-pointer
+    transform
+    hover:scale-105`
 }
 
 export default SubHeader;

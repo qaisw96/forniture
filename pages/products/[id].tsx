@@ -1,26 +1,24 @@
 import React from 'react';
 import PageLayout from "../../src/components/layout/PageLayout/PageLayout";
 import {getAllCategories, getSingleCategory} from "../../src/database/categories";
+import {getAllProducts, getSingleProduct} from "../../src/database/products";
 import DefaultLayout from "../../src/components/layout/DefaultLayout/DefaultLayout";
-import CategoryPageHeader from "../../src/components/CategoryPageHeader/CategoryPageHeader";
-import Products from "../../src/components/Products/Products";
+import ProductPage from "../../src/components/productPage";
 
-const Index = ({ categories, category }: any) => {
+const Product = ({ categories, product }: any) => {
+  console.log({ product })
   return (
     <PageLayout categories={categories}>
-      <DefaultLayout>
-        <CategoryPageHeader category={category}/>
-        <Products products={category.products} />
-      </DefaultLayout>
+      <ProductPage {...product} categories={categories}/>
     </PageLayout>
   );
 };
 
 export const getStaticPaths = async () => {
-  const { data: categories } = await getAllCategories();
+  const { data: products } = await getAllProducts();
 
-  const paths = categories?.map((category: any) =>({
-    params: { id: category.slug }
+  const paths = products?.map((product) =>({
+    params: { id: String(product.id) }
   }))
 
   return { paths, fallback: false }
@@ -28,17 +26,16 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: any) => {
   const { id } = params;
-
-  let { data: category } =  await getSingleCategory(id) as any;
-  category = category[0]
   const { data: categories } =  await getAllCategories();
+  let { data: product } = await getSingleProduct(id) as any;
+  product = product[0];
 
   return {
     props: {
       categories,
-      category,
+      product,
     }
   }
 }
 
-export default Index;
+export default Product;

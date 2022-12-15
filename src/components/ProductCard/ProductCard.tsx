@@ -4,7 +4,7 @@ import Link from "next/link";
 import ProductDescription from "./ProductDescription";
 
 const ProductCard = (props: any) => {
-  const { name, image, slug, price } = props;
+  const { id, name, image, slug, price } = props;
 
   const productDescriptionProps = {
     name,
@@ -12,7 +12,7 @@ const ProductCard = (props: any) => {
   }
 
   return (
-    <Link className={classes.container} href={`/products/${slug}`}>
+    <Link className={classes.container} href={`/products/${id}`}>
       <Image className={classes.image} src={image} alt={name} width={400} height={500}/>
       <div className={classes.content}>
         <h3 className={classes.quickViewBtn}>Quick View</h3>

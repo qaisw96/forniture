@@ -16,20 +16,27 @@ const NavItem = (props: INavItem) => {
 
     return (
       <div className={classes.container} onClick={navigateTo}>
-          <h3 className="text-sm">{ name }</h3>
+          <h3 className={classes.title}>{ name }</h3>
       </div>
     );
 }
 
 const classes = {
-    container: `
-        hover:bg-secondary 
-        flex 
-        justify-between 
-        md:justify-start 
-        py-4
-        md:py-2
-        px-4 
-        cursor-pointer`,
+  container: `
+    transform
+    transition-all
+    duration-200
+    hover:bg-secondary 
+    hover:scale-110
+    flex 
+    justify-between 
+    md:justify-start 
+    py-4
+    md:py-2
+    px-4 
+    cursor-pointer`,
+  title: `
+    text-sm`,
+
 }
 export default NavItem;

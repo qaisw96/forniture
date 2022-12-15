@@ -2,6 +2,7 @@ import React from 'react';
 import ProductCard from "../ProductCard/ProductCard";
 
 const Products = ({ products }: any) => {
+  console.log(products)
   return (
     <div className={classes.products}>
       {products.map((product: any) => (

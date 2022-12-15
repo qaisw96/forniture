@@ -16,3 +16,12 @@ export const getAllProducts = async () => {
 
   return response;
 };
+
+export const getSingleProduct = async (id: any) => {
+  const response = await supabase
+    .from('products')
+    .select()
+    .eq('id', id)
+
+  return response;
+}
