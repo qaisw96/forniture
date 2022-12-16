@@ -1,31 +1,51 @@
 import React, {useState} from 'react';
+import {Button} from "antd";
 
 const ProductCounter = () => {
+  const min = 1;
+  const max = 100;
+
   const [counter, setCounter] = useState(0);
 
   const onChange = (e: any) => {
-    setCounter(e.target.value)
+    const value = Math.max(min, Math.min(max, Number(e.target.value)));
+    setCounter(value)
   };
 
-  const add = () => setCounter(counter => ++counter);
-  const subtract = () => setCounter(counter => --counter);
+  const add = () => {
+    if (counter > 20) return
+    setCounter(counter => ++counter);
+  }
+  const subtract = () => {
+    if (counter === 0) return
+    setCounter(counter => --counter);
+  }
 
   return (
     <div className={classes.container}>
-      <div className={classes.counter + classes.minus} onClick={subtract}>-</div>
-      <input min={0} className={classes.input} value={counter} onChange={onChange}/>
-      <div className={classes.counter + classes.plus} onClick={add}>+</div>
+      <div className={classes.counterContainer}>
+        <div className={classes.counter + classes.minus} onClick={subtract}>-</div>
+        <input min="0" type="number" className={classes.input} value={counter} onChange={onChange}/>
+        <div className={classes.counter + classes.plus} onClick={add}>+</div>
+      </div>
+      <Button size="large" className={classes.addBtn} disabled={counter === 0}>
+        Add To Cart
+      </Button>
     </div>
   );
 };
 
 const classes = {
   container: `
+    flex
+    gap-8`,
+  counterContainer: `
     flex`,
   counter: `
     px-3
     py-1
     border-2
+    border-primary
     cursor-pointer`,
   minus: `
     border-r-0`,
@@ -33,8 +53,13 @@ const classes = {
     border-l-0`,
   input: `
     border-2
+    border-primary
     w-14
     text-center`,
+  addBtn: `
+    rounded-none
+    enabled:bg-primary
+    enabled:text-black`,
 }
 
 export default ProductCounter;

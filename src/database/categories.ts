@@ -17,5 +17,16 @@ export const getSingleCategory = async (id: any) => {
     return response;
 };
 
+export const getProductsByCategoryId = async (productId: number, categoryId: number) => {
+    const response = await supabase
+      .from('products')
+      .select()
+      .eq('categoryId', categoryId)
+      .neq('id', productId)
+      .limit(3)
+
+    return response;
+};
+
 
 

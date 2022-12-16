@@ -1,17 +1,18 @@
 import React from 'react';
 import {Breadcrumb} from "antd";
 import Link from "next/link";
+import {className} from "postcss-selector-parser";
 
 const BreadCrumb = ({ words }: any) => {
   const renderItem = (word: any) => (
-    <Breadcrumb.Item key={word}>
+    <Breadcrumb.Item key={word} className={classes.item}>
       {word.text}
     </Breadcrumb.Item>
   )
 
   const renderItemLink = (word: any) => (
     <Breadcrumb.Item key={word}>
-      <Link href={word.link}>{word.text}</Link>
+      <Link href={word.link} className={classes.item}>{word.text}</Link>
     </Breadcrumb.Item>
   )
 
@@ -23,5 +24,10 @@ const BreadCrumb = ({ words }: any) => {
     </Breadcrumb>
   );
 };
+
+const classes = {
+  item: `
+    capitalize`,
+}
 
 export default BreadCrumb;
