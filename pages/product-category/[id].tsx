@@ -2,8 +2,8 @@ import React from 'react';
 import PageLayout from "../../src/components/layout/PageLayout/PageLayout";
 import {getAllCategories, getSingleCategory} from "../../src/database/categories";
 import DefaultLayout from "../../src/components/layout/DefaultLayout/DefaultLayout";
-import CategoryPageHeader from "../../src/components/CategoryPageHeader/CategoryPageHeader";
-import Products from "../../src/components/Products/Products";
+import CategoryPageHeader from "../../src/components/categories/CategoryPageHeader/CategoryPageHeader";
+import Products from "../../src/components/product/Products/Products";
 
 const Index = ({ categories, category }: any) => {
   return (

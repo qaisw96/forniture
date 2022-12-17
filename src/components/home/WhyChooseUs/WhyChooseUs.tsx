@@ -4,7 +4,7 @@ import { BsCreditCard } from 'react-icons/bs';
 import { RiSecurePaymentLine } from 'react-icons/ri';
 import { SlBasket } from 'react-icons/sl';
 import WhyChooseUsCard from "./WhyChooseUsCard";
-import DefaultLayout from "../layout/DefaultLayout/DefaultLayout";
+import DefaultLayout from "../../layout/DefaultLayout/DefaultLayout";
 import SectionHeader from "../SectionHeader/SectionHeader";
 
 const items = [

@@ -1,6 +1,6 @@
 import React from 'react';
 import RatingCard from "./RatingCard";
-import DefaultLayout from "../layout/DefaultLayout/DefaultLayout";
+import DefaultLayout from "../../layout/DefaultLayout/DefaultLayout";
 
 const ratings = [
   { author: 'MARIA OLIVER', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.' },

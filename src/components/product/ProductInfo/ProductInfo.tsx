@@ -1,14 +1,10 @@
 import React from 'react';
-import DefaultLayout from "../layout/DefaultLayout/DefaultLayout";
 import Image from "next/image";
-import BreadCrumb from "../BreadCrumb/BreadCrumb";
-import {Button, Divider} from "antd";
+import BreadCrumb from "../../BreadCrumb/BreadCrumb";
+import {Divider} from "antd";
 import ProductCounter from "../ProductCounter/ProductCounter";
-import ProductCollapse from "../ProductCollapse/ProductCollapse";
-import RelatedProducts from "../RelatedProducts/RelatedProducts";
 
-const ProductPage = ({ id: productId, image, name, price, description, categoryId, categories }: any) => {
-  const category = categories.find((category: any) => category.id === categoryId);
+const ProductInfo = ({ category, price, name, description, image }: any) => {
   const words = [
     { text: 'Home', link: '/' },
     { text: category.name.toLowerCase(), link: `/product-category/${category.slug}`},
@@ -16,10 +12,9 @@ const ProductPage = ({ id: productId, image, name, price, description, categoryI
   ]
 
   return (
-    <DefaultLayout className={classes.container}>
-      <div className={classes.headerContainer}>
+      <div className={classes.container}>
         <Image className={classes.image} src={image} alt={image} width={500} height={800}/>
-        <div className={classes.right}>
+        <div className={classes.info}>
           <BreadCrumb words={words} />
           <h2 className={classes.name}>{name}</h2>
           <h2 className={classes.price}>${price + '.00'}<span className={classes.ship}> & Free Shipping</span></h2>
@@ -30,20 +25,12 @@ const ProductPage = ({ id: productId, image, name, price, description, categoryI
           </div>
         </div>
       </div>
-      <div className={classes.collapse}>
-        <ProductCollapse/>
-      </div>
-      <div className={classes.collapse}>
-        <RelatedProducts categoryId={categoryId} productId={productId}/>
-      </div>
-    </DefaultLayout>
   );
 };
 
 const classes = {
   container: `
-    mt-20`,
-  headerContainer: `
+    mt-20
     flex
     flex-col
     items-center
@@ -52,7 +39,7 @@ const classes = {
     gap-16`,
   image: `
     basis-1/2`,
-  right: `
+  info: `
     basis-1/2
     flex
     flex-col
@@ -73,8 +60,6 @@ const classes = {
   counter: `
     flex
     gap-8`,
-  collapse: `
-    mt-20`,
 }
 
-export default ProductPage;
+export default ProductInfo;

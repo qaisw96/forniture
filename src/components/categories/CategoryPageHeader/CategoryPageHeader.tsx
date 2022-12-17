@@ -1,5 +1,5 @@
 import React from 'react';
-import BreadCrumb from "../BreadCrumb/BreadCrumb";
+import BreadCrumb from "../../BreadCrumb/BreadCrumb";
 
 const CategoryPageHeader = ({ category }: any) => {
   const { name, products } = category;

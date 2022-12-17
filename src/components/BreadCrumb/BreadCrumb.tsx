@@ -1,7 +1,6 @@
 import React from 'react';
 import {Breadcrumb} from "antd";
 import Link from "next/link";
-import {className} from "postcss-selector-parser";
 
 const BreadCrumb = ({ words }: any) => {
   const renderItem = (word: any) => (

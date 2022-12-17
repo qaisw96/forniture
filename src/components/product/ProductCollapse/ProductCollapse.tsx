@@ -21,6 +21,7 @@ const ProductCollapse = () => {
 
 const classes = {
   container: `
+    mt-20
     rounded-none`,
 }
 

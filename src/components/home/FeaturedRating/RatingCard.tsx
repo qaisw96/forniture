@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiFillStar } from 'react-icons/ai'
-import DefaultLayout from "../layout/DefaultLayout/DefaultLayout";
-import category from "../Category/Category";
+import DefaultLayout from "../../layout/DefaultLayout/DefaultLayout";
+import category from "../../categories/Category/Category";
 
 const RatingCard = ({ author, text }: any) => {
   return (

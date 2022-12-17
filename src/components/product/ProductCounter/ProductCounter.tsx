@@ -25,7 +25,7 @@ const ProductCounter = () => {
     <div className={classes.container}>
       <div className={classes.counterContainer}>
         <div className={classes.counter + classes.minus} onClick={subtract}>-</div>
-        <input min="0" type="number" className={classes.input} value={counter} onChange={onChange}/>
+        <input min={min} max={max} type="number" className={classes.input} value={counter} onChange={onChange}/>
         <div className={classes.counter + classes.plus} onClick={add}>+</div>
       </div>
       <Button size="large" className={classes.addBtn} disabled={counter === 0}>
@@ -42,11 +42,15 @@ const classes = {
   counterContainer: `
     flex`,
   counter: `
-    px-3
-    py-1
+    transition-all
+    duration-300
+    px-4
+    py-2
     border-2
     border-primary
-    cursor-pointer`,
+    cursor-pointer
+    hover:bg-primary
+    hover:text-white`,
   minus: `
     border-r-0`,
   plus: `
@@ -59,7 +63,8 @@ const classes = {
   addBtn: `
     rounded-none
     enabled:bg-primary
-    enabled:text-black`,
+    enabled:text-white
+    h-auto`,
 }
 
 export default ProductCounter;

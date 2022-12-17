@@ -1,7 +1,8 @@
-import React from 'react';
-import DefaultLayout from "../layout/DefaultLayout/DefaultLayout";
+import React, {useState} from 'react';
+import DefaultLayout from "../../layout/DefaultLayout/DefaultLayout";
 import SectionHeader from "../SectionHeader/SectionHeader";
-import Products from "../Products/Products";
+import Products from "../../product/Products/Products";
+import ProductViewModal from "../../product/ProductViewModal/ProductViewModal";
 
 const FeaturedProducts = ({ featuredProducts }: any) => {
   return (

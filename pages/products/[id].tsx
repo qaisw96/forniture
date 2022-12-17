@@ -3,13 +3,30 @@ import PageLayout from "../../src/components/layout/PageLayout/PageLayout";
 import {getAllCategories, getSingleCategory} from "../../src/database/categories";
 import {getAllProducts, getSingleProduct} from "../../src/database/products";
 import DefaultLayout from "../../src/components/layout/DefaultLayout/DefaultLayout";
-import ProductPage from "../../src/components/productPage";
+import ProductInfo from "../../src/components/product/ProductInfo/ProductInfo";
+import ProductCollapse from "../../src/components/product/ProductCollapse/ProductCollapse";
+import RelatedProducts from "../../src/components/categories/RelatedProducts/RelatedProducts";
+import ProductViewModal from "../../src/components/product/ProductViewModal/ProductViewModal";
 
 const Product = ({ categories, product }: any) => {
-  console.log({ product })
+  const { id: productId, categoryId, name, price, image,description } = product;
+  const category = categories.find((category: any) => category.id === categoryId);
+
+  const productInfoProps = {
+    category,
+    price,
+    name,
+    description,
+    image
+  };
+
   return (
     <PageLayout categories={categories}>
-      <ProductPage {...product} categories={categories}/>
+      <DefaultLayout>
+        <ProductInfo {...productInfoProps} />
+        <ProductCollapse/>
+        <RelatedProducts categoryId={categoryId} productId={productId}/>
+      </DefaultLayout>
     </PageLayout>
   );
 };

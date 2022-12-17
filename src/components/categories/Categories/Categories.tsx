@@ -1,7 +1,7 @@
 import React from 'react';
 import Category from "../Category/Category";
-import DefaultLayout from "../layout/DefaultLayout/DefaultLayout";
-import SectionHeader from "../SectionHeader/SectionHeader";
+import DefaultLayout from "../../layout/DefaultLayout/DefaultLayout";
+import SectionHeader from "../../home/SectionHeader/SectionHeader";
 
 const Categories = ({ categories }: any) => {
   return (
