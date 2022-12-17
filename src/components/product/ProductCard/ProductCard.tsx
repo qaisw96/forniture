@@ -29,37 +29,38 @@ const ProductCard = (props: any) => {
   }
 
   return (
-    <>
-      <div className={classes.container} onClick={handleNavigate}>
+    <div className={classes.container}>
+      <Link href={`/products/${id}`} className={classes.linkContainer}>
         <Image className={classes.image} src={image} alt={name} width={400} height={500}/>
-        <div className={classes.content}>
-          <h3 className={classes.quickViewBtn} onClick={handleQuickViewClick}>Quick View</h3>
-        </div>
         <ProductDescription {...productDescriptionProps}/>
         <div className={classes.sale}>
           <p>Sale</p>
         </div>
+      </Link>
+      <div className={classes.quickView}>
+        <h3 onClick={handleQuickViewClick}>Quick View</h3>
       </div>
       <ProductViewModal isModalOpen={isModalOpen} onClose={onClose} product={props}/>
-    </>
+    </div>
   );
 }
 
 const classes = {
   container: `
+    relative
     md:w-[32%]
     w-[48%]
-    relative
+    group`,
+  linkContainer: `
     flex
     flex-col
     justify-center
     h-fit
-    group
     cursor-pointer
     `,
   image: `
     w-full`,
-  content: `
+  quickView: `
     absolute
     w-full
     bg-black
@@ -69,10 +70,10 @@ const classes = {
     bottom-20
     text-center
     p-2
-    group-hover:block`,
-  quickViewBtn: `
+    group-hover:block
     md:sm
-    text-xs`,
+    text-xs
+    cursor-pointer`,
   products: `
     text-gray-400
     text-xs`,
